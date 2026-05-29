@@ -358,15 +358,18 @@ export function LandingPage() {
               <WhatsAppIcon className="h-5 w-5" />
               Unirme al canal
             </a>
+            <div className="mt-7 grid gap-3 sm:grid-cols-2">
+              {communityBenefits.slice(0, 4).map((benefit) => (
+                <div key={benefit} className="community-mini-item">
+                  <Check size={16} aria-hidden="true" />
+                  <span>{benefit}</span>
+                </div>
+              ))}
+            </div>
           </motion.div>
 
-          <motion.div {...motionProps} variants={stagger} className="community-list">
-            {communityBenefits.map((benefit) => (
-              <motion.div key={benefit} variants={fadeUp} className="community-item">
-                <Check size={18} aria-hidden="true" />
-                <span>{benefit}</span>
-              </motion.div>
-            ))}
+          <motion.div {...motionProps} variants={fadeUp}>
+            <ChannelPreview />
           </motion.div>
         </div>
       </section>
@@ -526,6 +529,64 @@ function ChannelPopup() {
         </motion.div>
       ) : null}
     </AnimatePresence>
+  );
+}
+
+function ChannelPreview() {
+  return (
+    <article className="channel-preview-card" aria-label="Vista previa del canal de WhatsApp">
+      <header className="channel-preview-header">
+        <Image
+          src="/brand/mente-sin-limites.png"
+          alt="Mentes Sin Límites"
+          width={42}
+          height={50}
+          className="rounded-full bg-white"
+        />
+        <div className="min-w-0">
+          <h3>GRUPO DE ESTUDIO INTENSIVO GRATUITO PARA LAS PRUEBAS SABER 11</h3>
+          <p>4,8 mil seguidores</p>
+        </div>
+      </header>
+
+      <div className="channel-preview-body">
+        <div className="channel-post">
+          <div className="schedule-poster">
+            <div>
+              <p className="poster-title">HORARIO</p>
+              <span>ICFES - MATES</span>
+            </div>
+            <div className="poster-row">
+              <strong>19 MAYO</strong>
+              <strong>3:00 PM</strong>
+            </div>
+            <div className="poster-strip">ECUACIONES PARA EL ICFES</div>
+            <div className="poster-footer">
+              <span>Math con Jean</span>
+              <span>Jean Hernández</span>
+            </div>
+          </div>
+
+          <div className="channel-message">
+            <p className="font-semibold text-white">Sesión de Mates (Jean)</p>
+            <p>Nos vemos a las 3pm, parte 2, vamos con ecuaciones.</p>
+            <p className="text-[#25d366]">meet.google.com/bjy-agcp-fyi</p>
+            <p className="text-[#25d366]">whatsapp.com/channel/0029Vb0...</p>
+            <div className="mt-4 flex items-center justify-between border-t border-white/10 pt-4">
+              <span className="text-xs text-zinc-500">12:18 p. m.</span>
+              <a
+                href={whatsappChannel}
+                target="_blank"
+                rel="noreferrer"
+                className="channel-view-link"
+              >
+                Ver canal
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
   );
 }
 
