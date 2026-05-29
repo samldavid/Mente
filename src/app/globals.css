@@ -316,6 +316,22 @@ a {
   font-weight: 850;
 }
 
+.brand-lockup {
+  display: inline-flex;
+  align-items: center;
+}
+
+.brand-lockup > :not(:first-child) {
+  margin-left: -0.55rem;
+}
+
+.hero-logo-lockup {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
 .student-entry,
 .community-band {
   position: relative;
@@ -349,13 +365,6 @@ a {
   position: relative;
 }
 
-.student-preview {
-  display: grid;
-  gap: 0.85rem;
-  align-content: center;
-}
-
-.student-preview-item,
 .community-item {
   display: flex;
   min-height: 58px;
@@ -370,18 +379,10 @@ a {
   backdrop-filter: blur(14px);
 }
 
-.student-preview-item span {
-  width: 9px;
-  height: 9px;
-  border-radius: 999px;
-  background: var(--red);
-  box-shadow: 0 0 20px rgba(239, 35, 60, 0.9);
-}
-
-.reference-card {
+.student-image-panel {
   position: relative;
   display: flex;
-  min-height: 390px;
+  min-height: 360px;
   overflow: hidden;
   border: 1px solid var(--line);
   border-radius: 8px;
@@ -389,14 +390,8 @@ a {
   box-shadow: 0 30px 90px rgba(0, 0, 0, 0.28);
 }
 
-.reference-card img {
+.student-image-panel img {
   filter: saturate(0.86) contrast(1.05);
-  transition: transform 260ms ease, filter 260ms ease;
-}
-
-.reference-card:hover img {
-  transform: scale(1.035);
-  filter: saturate(1) contrast(1.08);
 }
 
 .channel-popup {

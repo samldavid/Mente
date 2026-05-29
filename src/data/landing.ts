@@ -48,33 +48,6 @@ export const benefits = [
   },
 ];
 
-export const referenceImages = [
-  {
-    src: "/reference/study-group.jpg",
-    alt: "Grupo de estudiantes trabajando juntos en una sesión de estudio",
-    label: "Estudio acompañado",
-    title: "Aprender con otros baja la ansiedad de la prueba.",
-    credit: "Pexels / Alexander Suhorucov",
-    url: "https://www.pexels.com/photo/people-sitting-down-near-table-with-assorted-laptop-computers-6457572/",
-  },
-  {
-    src: "/reference/classroom-study.jpg",
-    alt: "Estudiantes en una clase con cuadernos y material de apoyo",
-    label: "Clase práctica",
-    title: "La explicación se vuelve útil cuando termina en práctica.",
-    credit: "Pexels / Yan Krukau",
-    url: "https://www.pexels.com/photo/a-teacher-having-a-class-with-students-8199160/",
-  },
-  {
-    src: "/reference/exam-practice.jpg",
-    alt: "Estudiante resolviendo una evaluación escrita",
-    label: "Simulación Saber 11",
-    title: "Entrenar preguntas reales mejora el criterio de respuesta.",
-    credit: "Pexels / RDNE Stock project",
-    url: "https://www.pexels.com/photo/a-person-answering-test-papers-7092588/",
-  },
-];
-
 export const methodSteps = [
   {
     kicker: "01",

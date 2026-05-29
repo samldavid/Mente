@@ -29,7 +29,6 @@ import {
   heroStats,
   methodSteps,
   navItems,
-  referenceImages,
   tutors,
   whatsappChannel,
 } from "@/data/landing";
@@ -115,68 +114,6 @@ export function LandingPage() {
         </motion.div>
       </section>
 
-      <section className="section-shell section-gap pt-0">
-        <motion.div
-          {...motionProps}
-          variants={fadeUp}
-          className="flex flex-col justify-between gap-6 md:flex-row md:items-end"
-        >
-          <div className="max-w-3xl">
-            <p className="section-kicker">Referencias visuales</p>
-            <h2 className="section-title">
-              Una experiencia que se ve como estudio real, no como folleto.
-            </h2>
-            <p className="section-copy">
-              Sumamos imágenes de apoyo para transmitir clase, práctica y
-              comunidad sin abandonar la identidad oscura de Mentes Sin Límites.
-            </p>
-          </div>
-          <Link href="/estudiantes" className="secondary-action">
-            Ir al aula
-            <ArrowRight size={18} aria-hidden="true" />
-          </Link>
-        </motion.div>
-
-        <motion.div
-          {...motionProps}
-          variants={stagger}
-          className="mt-12 grid gap-5 lg:grid-cols-3"
-        >
-          {referenceImages.map((image) => (
-            <motion.article
-              key={image.src}
-              variants={fadeUp}
-              className="reference-card"
-            >
-              <Image
-                src={image.src}
-                alt={image.alt}
-                fill
-                sizes="(min-width: 1024px) 33vw, 100vw"
-                className="object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent" />
-              <div className="relative mt-auto p-5">
-                <p className="text-[0.68rem] font-bold uppercase tracking-[0.22em] text-red-200">
-                  {image.label}
-                </p>
-                <h3 className="mt-3 text-xl font-semibold leading-tight">
-                  {image.title}
-                </h3>
-                <a
-                  href={image.url}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="mt-4 inline-flex text-xs text-zinc-500 hover:text-zinc-300"
-                >
-                  {image.credit}
-                </a>
-              </div>
-            </motion.article>
-          ))}
-        </motion.div>
-      </section>
-
       <section className="section-band">
         <div className="section-shell grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
           <motion.div {...motionProps} variants={fadeUp}>
@@ -242,13 +179,33 @@ export function LandingPage() {
               <ArrowRight size={18} aria-hidden="true" />
             </Link>
           </motion.div>
-          <motion.div {...motionProps} variants={stagger} className="student-preview">
-            {["Agenda", "Práctica", "Dudas", "Comunidad"].map((item) => (
-              <motion.div key={item} variants={fadeUp} className="student-preview-item">
-                <span />
-                {item}
-              </motion.div>
-            ))}
+          <motion.div {...motionProps} variants={fadeUp} className="student-image-panel">
+            <Image
+              src="/reference/study-group.jpg"
+              alt="Estudiantes trabajando juntos durante una sesión de estudio"
+              fill
+              sizes="(min-width: 1024px) 42vw, 100vw"
+              className="object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black via-black/45 to-transparent" />
+            <div className="relative mt-auto p-5">
+              <div className="flex items-center gap-3">
+                <Image
+                  src="/brand/seamosgenios.png"
+                  alt="Logo SeamosGenios"
+                  width={42}
+                  height={42}
+                  className="rounded-[8px] bg-white/5 p-1 ring-1 ring-white/10"
+                />
+                <p className="text-xs font-bold uppercase tracking-[0.22em] text-red-100">
+                  Aula SeamosGenios
+                </p>
+              </div>
+              <p className="mt-4 max-w-sm text-lg font-semibold leading-tight">
+                Material, agenda y práctica reunidos para que la clase no termine
+                cuando cierras la sesión.
+              </p>
+            </div>
           </motion.div>
         </div>
       </section>
@@ -603,13 +560,22 @@ function Hero({ reduceMotion }: { reduceMotion: boolean }) {
 
       <nav className="relative z-20 mx-auto flex w-full max-w-7xl items-center justify-between px-5 py-5 sm:px-6 lg:px-8">
         <a href="#inicio" className="flex items-center gap-3" aria-label="Inicio">
-          <Image
-            src="/brand/mente-sin-limites.png"
-            alt="Mentes Sin Límites"
-            width={58}
-            height={69}
-            className="h-14 w-12 rounded-full object-cover ring-1 ring-red-500/30"
-          />
+          <span className="brand-lockup">
+            <Image
+              src="/brand/mente-sin-limites.png"
+              alt="Mentes Sin Límites"
+              width={58}
+              height={69}
+              className="h-14 w-12 rounded-full object-cover ring-1 ring-red-500/30"
+            />
+            <Image
+              src="/brand/seamosgenios.png"
+              alt="SeamosGenios"
+              width={46}
+              height={44}
+              className="h-10 w-10 rounded-[8px] bg-white/5 p-1 ring-1 ring-white/15"
+            />
+          </span>
           <div className="leading-tight">
             <p className="text-[0.72rem] font-bold uppercase tracking-[0.28em] text-red-200">
               SeamosGenios
@@ -685,14 +651,24 @@ function Hero({ reduceMotion }: { reduceMotion: boolean }) {
         </motion.div>
 
         <motion.aside {...heroStatsMotion} className="brand-panel">
-          <Image
-            src="/brand/mente-sin-limites.png"
-            alt="Logo Mentes Sin Límites"
-            width={220}
-            height={264}
-            className="mx-auto h-auto w-44 rounded-full object-cover shadow-[0_0_70px_rgba(220,38,38,0.22)]"
-            priority
-          />
+          <div className="hero-logo-lockup">
+            <Image
+              src="/brand/mente-sin-limites.png"
+              alt="Logo Mentes Sin Límites"
+              width={220}
+              height={264}
+              className="h-auto w-44 rounded-full object-cover shadow-[0_0_70px_rgba(220,38,38,0.22)]"
+              priority
+            />
+            <Image
+              src="/brand/seamosgenios.png"
+              alt="Logo SeamosGenios"
+              width={88}
+              height={85}
+              className="rounded-[8px] bg-white/5 p-2 ring-1 ring-white/15"
+              priority
+            />
+          </div>
           <div className="mt-8 border-t border-white/10 pt-7">
             <p className="text-sm font-semibold uppercase tracking-[0.24em] text-red-200">
               Mentes Sin Límites
@@ -722,13 +698,22 @@ function Footer() {
     <footer className="bg-[#030303] text-white">
       <div className="section-shell grid gap-10 py-12 md:grid-cols-[1fr_auto] md:items-center">
         <div className="flex items-center gap-4">
-          <Image
-            src="/brand/mente-sin-limites.png"
-            alt="Mentes Sin Límites"
-            width={62}
-            height={74}
-            className="rounded-full ring-1 ring-red-500/25"
-          />
+          <div className="brand-lockup">
+            <Image
+              src="/brand/mente-sin-limites.png"
+              alt="Mentes Sin Límites"
+              width={62}
+              height={74}
+              className="rounded-full ring-1 ring-red-500/25"
+            />
+            <Image
+              src="/brand/seamosgenios.png"
+              alt="SeamosGenios"
+              width={46}
+              height={44}
+              className="rounded-[8px] bg-white/5 p-1 ring-1 ring-white/15"
+            />
+          </div>
           <div>
             <p className="text-lg font-semibold">Mentes Sin Límites</p>
             <p className="mt-1 text-sm text-zinc-500">
