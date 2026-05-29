@@ -10,7 +10,6 @@ import {
   ChevronDown,
   Compass,
   GraduationCap,
-  MessageCircle,
   MessageCircleQuestion,
   PlayCircle,
   ShieldCheck,
@@ -22,6 +21,7 @@ import {
   type LucideIcon,
 } from "lucide-react";
 import { useEffect, useState } from "react";
+import { WhatsAppIcon } from "@/components/whatsapp-icon";
 import {
   benefits,
   communityBenefits,
@@ -273,11 +273,11 @@ export function LandingPage() {
             href={whatsappChannel}
             target="_blank"
             rel="noreferrer"
-            className="secondary-action"
+            className="secondary-action whatsapp-action"
             aria-label="Ver agenda de tutores en WhatsApp"
           >
+            <WhatsAppIcon className="h-5 w-5" />
             Ver agenda
-            <ArrowRight size={18} aria-hidden="true" />
           </a>
         </motion.div>
 
@@ -395,10 +395,10 @@ export function LandingPage() {
               href={whatsappChannel}
               target="_blank"
               rel="noreferrer"
-              className="primary-action mt-8"
+              className="primary-action whatsapp-action mt-8"
               aria-label="Unirme al canal oficial de WhatsApp"
             >
-              <MessageCircle size={20} aria-hidden="true" />
+              <WhatsAppIcon className="h-5 w-5" />
               Unirme al canal
             </a>
           </motion.div>
@@ -550,10 +550,10 @@ function ChannelPopup() {
                   href={whatsappChannel}
                   target="_blank"
                   rel="noreferrer"
-                  className="primary-action"
+                  className="primary-action whatsapp-action"
                   onClick={() => setIsOpen(false)}
                 >
-                  <MessageCircle size={20} aria-hidden="true" />
+                  <WhatsAppIcon className="h-5 w-5" />
                   Entrar al canal
                 </a>
                 <button
@@ -638,9 +638,10 @@ function Hero({ reduceMotion }: { reduceMotion: boolean }) {
           href={whatsappChannel}
           target="_blank"
           rel="noreferrer"
-          className="nav-cta"
+          className="nav-cta whatsapp-nav"
         >
-          Reservar
+          <WhatsAppIcon className="h-5 w-5" />
+          Canal
         </a>
       </nav>
 
@@ -670,10 +671,10 @@ function Hero({ reduceMotion }: { reduceMotion: boolean }) {
               href={whatsappChannel}
               target="_blank"
               rel="noreferrer"
-              className="primary-action"
+              className="primary-action whatsapp-action"
               aria-label="Reservar clase gratuita en WhatsApp"
             >
-              <MessageCircle size={20} aria-hidden="true" />
+              <WhatsAppIcon className="h-5 w-5" />
               Reservar clase gratuita
             </a>
             <Link href="/estudiantes" className="ghost-action">
@@ -743,7 +744,13 @@ function Footer() {
           <Link href="/estudiantes" className="footer-link">
             Aula
           </Link>
-          <a href={whatsappChannel} target="_blank" rel="noreferrer" className="footer-link">
+          <a
+            href={whatsappChannel}
+            target="_blank"
+            rel="noreferrer"
+            className="footer-link whatsapp-footer-link"
+          >
+            <WhatsAppIcon className="h-4 w-4" />
             WhatsApp
           </a>
         </div>

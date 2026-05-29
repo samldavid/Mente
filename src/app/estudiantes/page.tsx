@@ -6,9 +6,9 @@ import {
   BookOpenCheck,
   CalendarDays,
   CheckCircle2,
-  MessageCircle,
   Target,
 } from "lucide-react";
+import { WhatsAppIcon } from "@/components/whatsapp-icon";
 import {
   studentPath,
   studentResources,
@@ -61,9 +61,9 @@ export default function StudentsPage() {
               href={whatsappChannel}
               target="_blank"
               rel="noreferrer"
-              className="primary-action"
+              className="primary-action whatsapp-action"
             >
-              <MessageCircle size={20} aria-hidden="true" />
+              <WhatsAppIcon className="h-5 w-5" />
               Abrir canal oficial
             </a>
             <a href="#ruta" className="ghost-action">

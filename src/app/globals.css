@@ -177,6 +177,43 @@ a {
   box-shadow: 0 24px 54px rgba(239, 35, 60, 0.34);
 }
 
+.whatsapp-action {
+  border-color: rgba(37, 211, 102, 0.28);
+  background: #25d366;
+  color: #04150b;
+  box-shadow: 0 20px 45px rgba(37, 211, 102, 0.22);
+}
+
+.whatsapp-action:hover {
+  border-color: rgba(37, 211, 102, 0.45);
+  background: #1fbd5b;
+  color: #04150b;
+  box-shadow: 0 24px 54px rgba(37, 211, 102, 0.28);
+}
+
+.whatsapp-nav {
+  gap: 0.45rem;
+  border-color: rgba(37, 211, 102, 0.42);
+  background: rgba(37, 211, 102, 0.16);
+  color: #d7ffe6;
+}
+
+.whatsapp-nav:hover {
+  background: rgba(37, 211, 102, 0.24);
+  color: white;
+}
+
+.whatsapp-footer-link {
+  gap: 0.45rem;
+  border-color: rgba(37, 211, 102, 0.28);
+  color: #bdf7d1;
+}
+
+.whatsapp-footer-link:hover {
+  border-color: rgba(37, 211, 102, 0.48);
+  color: white;
+}
+
 .ghost-action,
 .secondary-action {
   border: 1px solid rgba(255, 255, 255, 0.14);
@@ -486,6 +523,33 @@ a {
   border-radius: 8px;
   background: rgba(255, 255, 255, 0.045);
   padding: 1.25rem;
+}
+
+.primary-action.whatsapp-action,
+.secondary-action.whatsapp-action {
+  border-color: rgba(37, 211, 102, 0.28);
+  background: #25d366;
+  color: #04150b;
+  box-shadow: 0 20px 45px rgba(37, 211, 102, 0.22);
+}
+
+.primary-action.whatsapp-action:hover,
+.secondary-action.whatsapp-action:hover {
+  border-color: rgba(37, 211, 102, 0.45);
+  background: #1fbd5b;
+  color: #04150b;
+  box-shadow: 0 24px 54px rgba(37, 211, 102, 0.28);
+}
+
+.footer-link.whatsapp-footer-link {
+  gap: 0.45rem;
+  border-color: rgba(37, 211, 102, 0.28);
+  color: #bdf7d1;
+}
+
+.footer-link.whatsapp-footer-link:hover {
+  border-color: rgba(37, 211, 102, 0.48);
+  color: white;
 }
 
 @media (min-width: 900px) {
