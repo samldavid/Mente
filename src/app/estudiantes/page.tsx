@@ -3,11 +3,11 @@ import Link from "next/link";
 import {
   ArrowLeft,
   ArrowRight,
-  BookOpenCheck,
   CalendarDays,
   CheckCircle2,
   Target,
 } from "lucide-react";
+import { SubjectLogo, type SubjectKey } from "@/components/subject-logo";
 import { WhatsAppIcon } from "@/components/whatsapp-icon";
 import {
   studentPath,
@@ -132,7 +132,11 @@ export default function StudentsPage() {
           <div className="grid gap-4 sm:grid-cols-2">
             {studentResources.map((resource) => (
               <article key={resource.label} className="student-card">
-                <BookOpenCheck className="text-red-400" size={24} aria-hidden="true" />
+                <SubjectLogo
+                  subject={resource.subject as SubjectKey}
+                  size="md"
+                  showLabel
+                />
                 <h3 className="mt-5 text-xl font-semibold">{resource.label}</h3>
                 <p className="mt-3 text-sm leading-6 text-zinc-400">
                   {resource.detail}

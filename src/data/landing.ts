@@ -15,6 +15,34 @@ export const heroStats = [
   { value: "WhatsApp", label: "comunidad y agenda" },
 ];
 
+export const subjectAreas = [
+  {
+    subject: "lectura",
+    title: "Lectura crítica",
+    copy: "Inferencias, intención del texto, argumentos y descarte de opciones.",
+  },
+  {
+    subject: "matematicas",
+    title: "Matemáticas",
+    copy: "Modelos, gráficas, ecuaciones y razonamiento cuantitativo.",
+  },
+  {
+    subject: "sociales",
+    title: "Sociales y ciudadanas",
+    copy: "Fuentes, contexto histórico, ciudadanía y análisis de casos.",
+  },
+  {
+    subject: "ciencias",
+    title: "Ciencias naturales",
+    copy: "Datos, experimentos, biología aplicada y lectura de resultados.",
+  },
+  {
+    subject: "ingles",
+    title: "Inglés",
+    copy: "Comprensión, vocabulario, intención comunicativa y estructura.",
+  },
+] as const;
+
 export const benefits = [
   {
     icon: "Sparkles",
@@ -78,6 +106,7 @@ export const methodSteps = [
 export const tutors = [
   {
     name: "David Gómez",
+    subjects: ["sociales", "lectura"],
     area: "Sociales, ciudadanas y lectura crítica",
     credential: "Estudiante de Ingeniería | Universidad del Cauca",
     schedule: "Agenda semanal publicada en el canal",
@@ -92,6 +121,7 @@ export const tutors = [
   },
   {
     name: "David Alejandro Rojas Chávez",
+    subjects: ["lectura", "sociales"],
     area: "Lectura crítica, historia y razonamiento aplicado",
     credential: "Estudiante de Medicina | UPTC",
     schedule: "Bloques introductorios anunciados por WhatsApp",
@@ -106,6 +136,7 @@ export const tutors = [
   },
   {
     name: "Juan Sebastián Montes",
+    subjects: ["ciencias"],
     area: "Ciencias naturales, salud y hábitos de estudio",
     credential: "Nutricionista Dietista | Universidad del Atlántico",
     schedule: "Sesiones y avisos dentro del canal oficial",
@@ -176,18 +207,32 @@ export const studentPath = [
 
 export const studentResources = [
   {
+    subject: "lectura",
     label: "Lectura crítica",
     detail: "Enunciado, intención, inferencia y descarte.",
   },
   {
+    subject: "sociales",
     label: "Sociales",
     detail: "Fuentes, gráficas, ciudadanía y contexto.",
   },
   {
+    subject: "ciencias",
     label: "Ciencias",
     detail: "Lectura de datos, biología aplicada y hábitos.",
   },
   {
+    subject: "matematicas",
+    label: "Matemáticas",
+    detail: "Ecuaciones, proporciones, gráficas y problemas tipo ICFES.",
+  },
+  {
+    subject: "ingles",
+    label: "Inglés",
+    detail: "Comprensión de textos, vocabulario y función comunicativa.",
+  },
+  {
+    subject: "rutina",
     label: "Rutina",
     detail: "Plan semanal breve para sostener práctica.",
   },

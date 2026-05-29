@@ -280,6 +280,110 @@ a {
   box-shadow: inset 0 0 0 1px rgba(239, 35, 60, 0.28);
 }
 
+.subject-logo {
+  --subject-accent: #ff4d5d;
+  --subject-bg: rgba(255, 77, 93, 0.12);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  color: var(--subject-accent);
+}
+
+.subject-logo-mark {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid color-mix(in srgb, var(--subject-accent) 42%, transparent);
+  border-radius: 8px;
+  background:
+    radial-gradient(circle at 32% 18%, color-mix(in srgb, var(--subject-accent) 28%, transparent), transparent 58%),
+    var(--subject-bg);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.035);
+}
+
+.subject-logo-sm .subject-logo-mark {
+  width: 38px;
+  height: 38px;
+}
+
+.subject-logo-md .subject-logo-mark {
+  width: 48px;
+  height: 48px;
+}
+
+.subject-logo-lg .subject-logo-mark {
+  width: 58px;
+  height: 58px;
+}
+
+.subject-logo svg {
+  width: 68%;
+  height: 68%;
+}
+
+.subject-logo svg path {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.subject-logo-text {
+  display: grid;
+  gap: 0.1rem;
+  color: white;
+  line-height: 1.1;
+}
+
+.subject-logo-text span {
+  color: var(--subject-accent);
+  font-size: 0.68rem;
+  font-weight: 900;
+  letter-spacing: 0.22em;
+}
+
+.subject-logo-text strong {
+  font-size: 0.92rem;
+  font-weight: 800;
+}
+
+.subject-area-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 0.85rem;
+}
+
+.subject-area-card {
+  min-height: 220px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.045);
+  padding: 1rem;
+  transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
+}
+
+.subject-area-card:hover {
+  transform: translateY(-3px);
+  border-color: color-mix(in srgb, var(--red) 36%, transparent);
+  background: rgba(255, 255, 255, 0.065);
+}
+
+.subject-area-card h3 {
+  margin-top: 1.15rem;
+  color: white;
+  font-size: 1rem;
+  font-weight: 850;
+}
+
+.subject-area-card p {
+  margin-top: 0.65rem;
+  color: #a1a1aa;
+  font-size: 0.82rem;
+  line-height: 1.55;
+}
+
 .trust-pill {
   display: inline-flex;
   min-height: 38px;
@@ -443,6 +547,13 @@ a {
   background: rgba(255, 255, 255, 0.065);
 }
 
+.tutor-subjects {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 0.45rem;
+}
+
 .tutor-mark {
   font-family: var(--font-display);
   color: rgba(255, 255, 255, 0.18);
@@ -543,6 +654,13 @@ a {
   font-size: clamp(2.4rem, 5vw, 4.2rem);
   font-weight: 950;
   line-height: 0.9;
+}
+
+.poster-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
 }
 
 .schedule-poster span {
@@ -682,6 +800,12 @@ a {
   }
 }
 
+@media (max-width: 1024px) {
+  .subject-area-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
 @media (max-width: 640px) {
   .primary-action,
   .ghost-action,
@@ -691,5 +815,24 @@ a {
 
   .hero-badge {
     max-width: 100%;
+  }
+
+  .subject-area-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .subject-area-card {
+    min-height: auto;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .subject-area-card h3 {
+    margin-top: 0;
+  }
+
+  .tutor-subjects {
+    justify-content: flex-start;
   }
 }

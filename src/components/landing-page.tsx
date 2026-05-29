@@ -21,6 +21,7 @@ import {
   type LucideIcon,
 } from "lucide-react";
 import { useEffect, useState } from "react";
+import { SubjectLogo, type SubjectKey } from "@/components/subject-logo";
 import { WhatsAppIcon } from "@/components/whatsapp-icon";
 import {
   benefits,
@@ -29,6 +30,7 @@ import {
   heroStats,
   methodSteps,
   navItems,
+  subjectAreas,
   tutors,
   whatsappChannel,
 } from "@/data/landing";
@@ -111,6 +113,25 @@ export function LandingPage() {
               </motion.article>
             );
           })}
+        </motion.div>
+      </section>
+
+      <section className="section-shell pb-20">
+        <motion.div
+          {...motionProps}
+          variants={stagger}
+          className="subject-area-grid"
+          aria-label="Materias Saber 11"
+        >
+          {subjectAreas.map((area) => (
+            <motion.article key={area.subject} variants={fadeUp} className="subject-area-card">
+              <SubjectLogo subject={area.subject} size="lg" />
+              <div>
+                <h3>{area.title}</h3>
+                <p>{area.copy}</p>
+              </div>
+            </motion.article>
+          ))}
         </motion.div>
       </section>
 
@@ -251,9 +272,18 @@ export function LandingPage() {
             >
               <div className="flex items-start justify-between gap-5">
                 <span className="tutor-mark">{String(index + 1).padStart(2, "0")}</span>
-                <span className="area-pill">{tutor.area}</span>
+                <div className="tutor-subjects" aria-label={`Materias de ${tutor.name}`}>
+                  {tutor.subjects.map((subject) => (
+                    <SubjectLogo
+                      key={subject}
+                      subject={subject as SubjectKey}
+                      size="sm"
+                    />
+                  ))}
+                </div>
               </div>
               <div className="mt-10">
+                <span className="area-pill">{tutor.area}</span>
                 <h3 className="text-2xl font-semibold leading-tight text-white">
                   {tutor.name}
                 </h3>
@@ -553,7 +583,10 @@ function ChannelPreview() {
         <div className="channel-post">
           <div className="schedule-poster">
             <div>
-              <p className="poster-title">HORARIO</p>
+              <div className="poster-heading">
+                <p className="poster-title">HORARIO</p>
+                <SubjectLogo subject="matematicas" size="md" />
+              </div>
               <span>ICFES - MATES</span>
             </div>
             <div className="poster-row">
@@ -746,6 +779,11 @@ function Hero({ reduceMotion }: { reduceMotion: boolean }) {
                   {stat.label}
                 </p>
               </div>
+            ))}
+          </div>
+          <div className="mt-5 flex flex-wrap justify-center gap-2">
+            {subjectAreas.map((area) => (
+              <SubjectLogo key={area.subject} subject={area.subject} size="sm" />
             ))}
           </div>
         </motion.aside>
